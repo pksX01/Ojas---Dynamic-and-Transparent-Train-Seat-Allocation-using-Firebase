@@ -14,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="@string/user"
-        android:drawableLeft="@drawable/email"
+        android:hint="@string/user"
+        android:drawableLeft="@drawable/email1"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:drawableLeft="@drawable/password"
-        android:text="@string/password"
+        android:hint="@string/password"
         android:inputType="textPassword" />
 
     <Button
