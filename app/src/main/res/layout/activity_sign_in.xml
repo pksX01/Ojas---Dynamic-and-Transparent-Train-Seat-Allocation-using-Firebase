@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    android:layout_marginTop="30dp"
+    android:layout_marginTop="0dp"
     tools:context=".Sign_in">
+
 
 
     <EditText
@@ -14,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_marginTop="0dp"
         android:hint="@string/user"
         android:drawableLeft="@drawable/email1"
         android:inputType="textEmailAddress" />
@@ -23,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_marginTop="10dp"
         android:drawableLeft="@drawable/password"
         android:hint="@string/password"
         android:inputType="textPassword" />
@@ -32,6 +36,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
+        android:gravity="center"
         android:background="@drawable/round_button"
-        android:text="@string/sign_in" />
+        android:text="@string/sign_in"
+        android:onClick="sign_in"
+        android:clickable="true"
+        android:focusable="true"
+        android:textColor="@android:color/white"/>
 </LinearLayout>

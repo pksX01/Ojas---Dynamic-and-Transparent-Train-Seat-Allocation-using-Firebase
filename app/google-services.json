@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1070428120190",
+    "firebase_url": "https://ojas-e9102.firebaseio.com",
+    "project_id": "ojas-e9102",
+    "storage_bucket": "ojas-e9102.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070428120190:android:6b0b955a4b01a203",
+        "android_client_info": {
+          "package_name": "com.example.rudra.ojas_for_tte"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070428120190-oe5g8rguahub7cjabal1j1hrqjbvig8h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rudra.ojas_for_tte",
+            "certificate_hash": "3f28a3e82f64cdd5b9bee83003addb26b3be30ee"
+          }
+        },
+        {
+          "client_id": "1070428120190-hdvkjea3smhgt261rulj3ri6p5dn4chn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCd2khZ8AXjrLlrwvzNVF0QmxXvaRRcpQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070428120190-hdvkjea3smhgt261rulj3ri6p5dn4chn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
