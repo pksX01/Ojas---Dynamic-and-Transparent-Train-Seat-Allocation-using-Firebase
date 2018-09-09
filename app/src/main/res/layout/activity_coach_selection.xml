@@ -46,11 +46,11 @@
         android:prompt="@string/select_coach"/>
 
     <Button
-        android:id="@+id/submit_btn"
+        android:id="@+id/nxt_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/round_button"
-        android:text="@string/submit"
+        android:text="@string/nxt"
         android:textColor="@android:color/white"
         android:layout_gravity="center"
         android:layout_marginLeft="40dp"

@@ -14,13 +14,13 @@ import java.util.List;
 
 public class CoachSelection extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private Button submit;
+    private Button next;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_selection);
 
-        Spinner spinner1=(Spinner) findViewById(R.id.spinner1);
+        final Spinner spinner1=(Spinner) findViewById(R.id.spinner1);
         spinner1.setOnItemSelectedListener(this);
         List<String> train_no= new ArrayList<String>();
         train_no.add("12561");
@@ -38,7 +38,7 @@ public class CoachSelection extends AppCompatActivity implements AdapterView.OnI
         // attaching data adapter to spinner
         spinner1.setAdapter(dataAdapter1);
 
-        Spinner spinner2=(Spinner) findViewById(R.id.spinner2);
+        final Spinner spinner2=(Spinner) findViewById(R.id.spinner2);
         spinner2.setOnItemSelectedListener(this);
         List<String> Coach =new ArrayList<String>();
         Coach.add("S1");
@@ -49,11 +49,13 @@ public class CoachSelection extends AppCompatActivity implements AdapterView.OnI
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(dataAdapter2);
 
-        submit=(Button) findViewById(R.id.submit_btn);
-        submit.setOnClickListener(new View.OnClickListener() {
+        next=(Button) findViewById(R.id.nxt_btn);
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(CoachSelection.this,Compartment1.class);
+                intent.putExtra("data1",String.valueOf(spinner1.getSelectedItem()));
+                intent.putExtra("data2",String.valueOf(spinner2.getSelectedItem()));
                 startActivity(intent);
             }
         });

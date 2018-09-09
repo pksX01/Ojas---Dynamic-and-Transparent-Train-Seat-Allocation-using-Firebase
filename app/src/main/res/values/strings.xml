@@ -19,5 +19,6 @@
     <string name="train">Train :</string>
     <string name="coach">Coach :</string>
     <string name="submit">Submit</string>
+    <string name="nxt">Next</string>
 
 </resources>

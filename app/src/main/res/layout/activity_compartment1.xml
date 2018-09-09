@@ -10,7 +10,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <android.support.v7.widget.GridLayout
         android:layout_width="wrap_content"
@@ -120,7 +121,19 @@
             app:layout_column="2" />
     </android.support.v7.widget.GridLayout>
 
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:text="@string/submit"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="submit"/>
 
     </LinearLayout>
 </ScrollView>
