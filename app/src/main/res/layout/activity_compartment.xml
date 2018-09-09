@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/buttonx"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -19,7 +20,7 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/round_button"
             android:text="@string/comprt1"
-            android:onClick="cmprt1"
+
             android:clickable="true"
             android:focusable="true"
             android:textColor="@android:color/white"/>

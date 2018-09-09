@@ -14,7 +14,7 @@ public class Sign_in extends AppCompatActivity {
     }
 
     public void sign_in(View view){
-        Intent intent=new Intent(Sign_in.this,Compartment.class);
+        Intent intent=new Intent(Sign_in.this,CoachSelection.class);
         startActivity(intent);
     }
 }

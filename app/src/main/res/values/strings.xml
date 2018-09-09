@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ojas for TTE</string>
+    <string name="app_name">Ojas - Dynamic Seat Allocation System </string>
     <string name="user">Username</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
@@ -13,5 +13,11 @@
     <string name="comprt7">Compartment 7</string>
     <string name="comprt8">Compartment 8</string>
     <string name="comprt9">Compartment 9</string>
+
+    <string name="select_train">Select the train</string>
+    <string name="select_coach">Select the coach</string>
+    <string name="train">Train :</string>
+    <string name="coach">Coach :</string>
+    <string name="submit">Submit</string>
 
 </resources>
