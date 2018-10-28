@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         app:columnCount="3"
-        app:rowCount="8"
+        app:rowCount="24"
         android:padding="30dp">
 
 
@@ -119,9 +119,552 @@
             android:text="12"
             app:layout_row="3"
             app:layout_column="2" />
+
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="4" />
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="4" />
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="4" />
+        <Button
+            android:id="@+id/button16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="5" />
+        <Button
+            android:id="@+id/button17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="17"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="5" />
+        <Button
+            android:id="@+id/button18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="5" />
+        <Button
+            android:id="@+id/button19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="6" />
+        <Button
+            android:id="@+id/button20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="6" />
+        <Button
+            android:id="@+id/button21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="6" />
+        <Button
+            android:id="@+id/button22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="7" />
+        <Button
+            android:id="@+id/button23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="7" />
+        <Button
+            android:id="@+id/button24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="7" />
+        <Button
+            android:id="@+id/button25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="8" />
+        <Button
+            android:id="@+id/button26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="26"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="8" />
+        <Button
+            android:id="@+id/button27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="27"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="8" />
+        <Button
+            android:id="@+id/button28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="28"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="9" />
+        <Button
+            android:id="@+id/button29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="29"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="9" />
+        <Button
+            android:id="@+id/button30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="9" />
+        <Button
+            android:id="@+id/button31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="31"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="10" />
+        <Button
+            android:id="@+id/button32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="32"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="10" />
+        <Button
+            android:id="@+id/button33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="33"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="10" />
+        <Button
+            android:id="@+id/button34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="34"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="11" />
+        <Button
+            android:id="@+id/button35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="35"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="11" />
+        <Button
+            android:id="@+id/button36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="11" />
+        <Button
+            android:id="@+id/button37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="37"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="12" />
+        <Button
+            android:id="@+id/button38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="38"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="12" />
+        <Button
+            android:id="@+id/button39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="39"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="12" />
+        <Button
+            android:id="@+id/button40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="40"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="13" />
+        <Button
+            android:id="@+id/button41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="41"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="13" />
+        <Button
+            android:id="@+id/button42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="42"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="13" />
+        <Button
+            android:id="@+id/button43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="43"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="14" />
+        <Button
+            android:id="@+id/button44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="44"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="14" />
+        <Button
+            android:id="@+id/button45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="45"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="14" />
+        <Button
+            android:id="@+id/button46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="46"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="15" />
+        <Button
+            android:id="@+id/button47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="47"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="15" />
+        <Button
+            android:id="@+id/button48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="48"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="15" />
+        <Button
+            android:id="@+id/button49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="49"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="16" />
+        <Button
+            android:id="@+id/button50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="16" />
+        <Button
+            android:id="@+id/button51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="51"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="16" />
+        <Button
+            android:id="@+id/button52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="52"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="17" />
+        <Button
+            android:id="@+id/button53"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="53"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="17" />
+        <Button
+            android:id="@+id/button54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="54"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="17" />
+        <Button
+            android:id="@+id/button55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="55"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="18" />
+        <Button
+            android:id="@+id/button56"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="56"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="18" />
+        <Button
+            android:id="@+id/button57"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="57"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="18" />
+        <Button
+            android:id="@+id/button58"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="58"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="19" />
+        <Button
+            android:id="@+id/button59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="59"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="19" />
+        <Button
+            android:id="@+id/button60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="60"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="19" />
+        <Button
+            android:id="@+id/button61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="61"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="20" />
+        <Button
+            android:id="@+id/button62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="62"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="20" />
+        <Button
+            android:id="@+id/button63"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="63"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="20" />
+        <Button
+            android:id="@+id/button64"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="64"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="21" />
+        <Button
+            android:id="@+id/button65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="65"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="21" />
+        <Button
+            android:id="@+id/button66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="66"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="21" />
+        <Button
+            android:id="@+id/button67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="67"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="22" />
+        <Button
+            android:id="@+id/button68"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="68"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="22" />
+        <Button
+            android:id="@+id/button69"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="69"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="22" />
+        <Button
+            android:id="@+id/button70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="70"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="0"
+            app:layout_row="23" />
+        <Button
+            android:id="@+id/button71"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="71"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="1"
+            app:layout_row="23" />
+        <Button
+            android:id="@+id/button72"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="72"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_column="2"
+            app:layout_row="23" />
     </android.support.v7.widget.GridLayout>
 
-    <Button
+        <Button
+            android:id="@+id/submit_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/round_button"
@@ -132,8 +675,7 @@
         android:layout_marginRight="40dp"
         android:layout_marginTop="30dp"
         android:clickable="true"
-        android:focusable="true"
-        android:onClick="submit"/>
+        android:focusable="true" />
 
     </LinearLayout>
 </ScrollView>
