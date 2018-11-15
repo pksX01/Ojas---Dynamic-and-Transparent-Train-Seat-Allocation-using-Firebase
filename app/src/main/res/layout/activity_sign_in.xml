@@ -9,6 +9,24 @@
     android:layout_marginTop="0dp"
     tools:context=".Sign_in">
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+        <RadioButton
+            android:id="@+id/simpleRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TTE"
+            android:layout_marginRight="20dp"/>
+        <RadioButton
+            android:id="@+id/simpleRadioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Passenger"
+            android:layout_marginLeft="20dp"/>
+    </RadioGroup>
 
 
     <EditText

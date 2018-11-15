@@ -20,5 +20,12 @@
     <string name="coach">Coach :</string>
     <string name="submit">Submit</string>
     <string name="nxt">Next</string>
+    <string name="Name">Name</string>
+    <string name="age">Age</string>
+    <string name="sex">Sex</string>
+    <string name="train_no">Train No</string>
+    <string name="coach_no">Coach No</string>
+    <string name="book_ticket">Book Ticket</string>
+    <string name="mob">Mobile No.</string>
 
 </resources>

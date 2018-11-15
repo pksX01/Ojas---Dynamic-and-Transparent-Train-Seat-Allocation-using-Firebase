@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rudra.ojas_for_tte">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
@@ -21,7 +22,7 @@
         <activity android:name=".Compartment" />
         <activity android:name=".Compartment1" />
         <activity android:name=".CoachSelection" />
-
+        <activity android:name=".Ticket_Booking"></activity>
     </application>
 
 </manifest>
