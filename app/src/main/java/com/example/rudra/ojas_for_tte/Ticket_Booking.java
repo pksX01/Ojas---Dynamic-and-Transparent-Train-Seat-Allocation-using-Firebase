@@ -27,23 +27,30 @@ import java.util.List;
 import java.util.Map;
 
 public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    EditText ed_name, ed_age, ed_sex,ed_mob;
-    private String name, age, sex,mob_no,coach_no;
-    private String item,seat_str="";
-    private Object obj;
-    private int seat_no=0,i=1,seatIn12561,seatIn12562,seatIn14013,seatIn14014,seatIn14017,seatIn14018;
+    EditText ed_name, ed_age, ed_sex, ed_mob;
+    private String name, age, sex, mob_no;
+    private String item, coach_no;
+    //private Object obj;
+    //private int seat_no = 0;
+    //long coach_12561,coach_12562,coach_14013,coach_14014,coach_14017,coach_14018,coach_no=1;
+    long seatIn12561_S1, seatIn12562_S1, seatIn14013_S1, seatIn14014_S1, seatIn14017_S1, seatIn14018_S1;
+    long seatIn12561_S2, seatIn12562_S2, seatIn14013_S2, seatIn14014_S2, seatIn14017_S2, seatIn14018_S2;
+    long seatIn12561_S3, seatIn12562_S3, seatIn14013_S3, seatIn14014_S3, seatIn14017_S3, seatIn14018_S3;
+    long seatIn12561_WL, seatIn12562_WL, seatIn14013_WL, seatIn14014_WL, seatIn14017_WL, seatIn14018_WL;
+    long seat_no_long;
     private DatabaseReference newReference;
-    private DatabaseReference childrenRef,passengerRef;
+    private DatabaseReference childrenRef, passengerRef;
     private DatabaseReference finalRef;
     BookingDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket__booking);
 
-        final Spinner spinner1=(Spinner) findViewById(R.id.train_spinner);
+        final Spinner spinner1 = (Spinner) findViewById(R.id.train_spinner);
         spinner1.setOnItemSelectedListener(this);
-        List<String> train_no= new ArrayList<String>();
+        List<String> train_no = new ArrayList<String>();
         train_no.add("12561");
         train_no.add("12562");
         train_no.add("14013");
@@ -59,15 +66,15 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
         // attaching data adapter to spinner
         spinner1.setAdapter(dataAdapter1);
 
-        ed_name=(EditText) findViewById(R.id.editText4);
-        ed_age=(EditText) findViewById(R.id.editText6);
-        ed_sex=(EditText) findViewById(R.id.editText5);
-        ed_mob=(EditText) findViewById(R.id.editText8);
+        ed_name = (EditText) findViewById(R.id.editText4);
+        ed_age = (EditText) findViewById(R.id.editText6);
+        ed_sex = (EditText) findViewById(R.id.editText5);
+        ed_mob = (EditText) findViewById(R.id.editText8);
 
-        db =new BookingDatabase(this);
+        db = new BookingDatabase(this);
 
-       newReference = FirebaseDatabase.getInstance().getReference();
-       passengerRef=newReference.child("Seats allocated to Passengers at the time of booking ");
+        newReference = FirebaseDatabase.getInstance().getReference();
+        passengerRef = newReference.child("Seats allocated to Passengers at the time of booking ");
 
 
     }
@@ -75,7 +82,7 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
-         item = parent.getItemAtPosition(position).toString();
+        item = parent.getItemAtPosition(position).toString();
 
         // Showing selected spinner item
         //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
@@ -87,60 +94,148 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-// -------------------------------------------------------------------------------------------------------------------------//
-    /*@Override
-    public void onStart(){
-        super.onStart();*/
-//-----------------------------------------------------------------------------------------------------------------------//
-        /*ValueEventListener postListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    //User user = postSnapshot.getValue(User.class);
-                    //seat_no=user.seat_no;
-                    seat_no=postSnapshot.child("Seat No").getValue(Integer.class);
-                    //seat_str=postSnapshot.child("Seat No").getValue(String.class);
-                    Toast.makeText(getApplicationContext(),"seat no from database is "+seat_no,Toast.LENGTH_LONG).show();
-                    //seat_no=String.valueOf();
-                    //seat_no++;
-                    //seat_str=Integer.toString(seat_no);
-                    //seat_str.equals(Integer.valueOf(seat_str)+1);
-                    //seat_str.equals(Integer.parseInt(seat_str)+1);
-                    //int temp = user.getSeat_no();
-                    //seat_no = seat_no + temp + 1;
-                    //seat_no=dataSnapshot.getValue(Integer.class);
-                    seat_no++;
-                    final_seat=seat_no;
-                    // coach_no=user.coach_no;
-                }
-            }
+    /* -------------------------------------------------------------------------------------------------------------------------*/
+    @Override
+    public void onStart() {
+        super.onStart();
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                //  Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
-        };
-        finalRef.addValueEventListener(postListener);*/
-//----------------------------------------------------------------------------------------------------------------------//
-        /*passengerRef.child("12561").child("S"+i).addValueEventListener(new ValueEventListener() {
+        passengerRef.child("12561").child("S1").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               // int x=0;
-                //Integer[] num = new Integer[10];
-                //seat_no=dataSnapshot.child("Seat No").getValue(Integer.class);
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    User user1 = postSnapshot.getValue(User.class);
-                    //seatIn12561= postSnapshot.child("Seat No").getValue(Integer.class);
+                seatIn12561_S1=dataSnapshot.getChildrenCount();
+            }
 
-                    //num[x++]
-                    seatIn12561= user1.getSeat_no();
-                    Toast.makeText(getApplicationContext(), "seat no in 12561 from database is " + seatIn12561, Toast.LENGTH_LONG).show();
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("12562").child("S1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn12562_S1=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14013").child("S1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14013_S1=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14014").child("S1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14014_S1=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14017").child("S1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14017_S1=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14018").child("S1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14018_S1=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+            passengerRef.child("12561").child("S2").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    seatIn12561_S2 = dataSnapshot.getChildrenCount();
+                    //Toast.makeText(getApplicationContext(), "seat no in 12561 in S2" + " from database is " + seatIn12561_S2, Toast.LENGTH_LONG).show();
+
                 }
-                    //seatIn12561 = Collections.max(Arrays.asList(num));
 
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+            passengerRef.child("12562").child("S2").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    seatIn12562_S2 = dataSnapshot.getChildrenCount();
+                   // Toast.makeText(getApplicationContext(), "seat no in 12562 in S2"+ " from database is " + seatIn12562_S2, Toast.LENGTH_LONG).show();
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+            passengerRef.child("14013").child("S2").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    seatIn14013_S2 = dataSnapshot.getChildrenCount();
+                   // Toast.makeText(getApplicationContext(), "seat no in 14013 in S2" + " from database is " + seatIn14013_S2, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        passengerRef.child("14014").child("S2").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14014_S2=dataSnapshot.getChildrenCount();
+                //Toast.makeText(getApplicationContext(), "seat no in 14014 in S2"+" from database is " + seatIn14014_S2, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        passengerRef.child("14017").child("S2").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                seatIn14017_S2=dataSnapshot.getChildrenCount();
+                //Toast.makeText(getApplicationContext(), "seat no in 14017 in S2"+" from database is " + seatIn14017_S2, Toast.LENGTH_LONG).show();
 
             }
 
@@ -150,23 +245,11 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        passengerRef.child("12562").child("S"+i).addValueEventListener(new ValueEventListener() {
+        passengerRef.child("14018").child("S2").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //int x=0;
-                //Integer[] num = new Integer[10];
-                //seat_no=dataSnapshot.child("Seat No").getValue(Integer.class);
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    User user2 = postSnapshot.getValue(User.class);
-                   //seatIn12562= postSnapshot.child("Seat No").getValue(Integer.class);
-
-                   // num[x++]
-                    seatIn12562= user2.getSeat_no();
-                    Toast.makeText(getApplicationContext(), "seat no in 12562 from database is " + seatIn12562, Toast.LENGTH_LONG).show();
-                }
-                    //seatIn12562 = Collections.max(Arrays.asList(num));
-
-
+                seatIn14018_S2=dataSnapshot.getChildrenCount();
+                //Toast.makeText(getApplicationContext(), "seat no in 14018 in S2"+" from database is " + seatIn14018_S2, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -175,23 +258,65 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        passengerRef.child("14013").child("S"+i).addValueEventListener(new ValueEventListener() {
+        passengerRef.child("12561").child("S3").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //int x=0;
-                //Integer[] num = new Integer[10];
-                //seat_no=dataSnapshot.child("Seat No").getValue(Integer.class);
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    User user3 = postSnapshot.getValue(User.class);
-                   // seatIn14013= postSnapshot.child("Seat No").getValue(Integer.class);
+                seatIn12561_S3=dataSnapshot.getChildrenCount();
+            }
 
-                   // num[x++]
-                    seatIn14013= user3.getSeat_no();
-                    Toast.makeText(getApplicationContext(), "seat no in 14013 from database is " + seatIn14013, Toast.LENGTH_LONG).show();
-                }
-                    //seatIn14013 =Collections.max(Arrays.asList(num));
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+        passengerRef.child("12562").child("S3").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn12562_S3=dataSnapshot.getChildrenCount();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14013").child("S3").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14013_S3=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14014").child("S3").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14014_S3=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14017").child("S3").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14017_S3=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14018").child("S3").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14018_S3=dataSnapshot.getChildrenCount();
             }
 
             @Override
@@ -200,23 +325,66 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        passengerRef.child("14014").child("S"+i).addValueEventListener(new ValueEventListener() {
+
+        passengerRef.child("12561").child("WL").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //int x=0;
-                //Integer[] num = new Integer[10];
-                //seat_no=dataSnapshot.child("Seat No").getValue(Integer.class);
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    User user4 = postSnapshot.getValue(User.class);
-                    //seatIn14014= postSnapshot.child("Seat No").getValue(Integer.class);
+                seatIn12561_WL=dataSnapshot.getChildrenCount();
+            }
 
-                    //num[x++] =
-                    seatIn14014=user4.getSeat_no();
-                    Toast.makeText(getApplicationContext(), "seat no in 14014 from database is " + seatIn14014, Toast.LENGTH_LONG).show();
-                }
-                    //seatIn14014 = Collections.max(Arrays.asList(num));
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+        passengerRef.child("12562").child("WL").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn12562_WL=dataSnapshot.getChildrenCount();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14013").child("WL").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14013_WL=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14014").child("WL").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14014_WL=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14017").child("WL").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14017_WL=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        passengerRef.child("14018").child("WL").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                seatIn14018_WL=dataSnapshot.getChildrenCount();
             }
 
             @Override
@@ -225,152 +393,124 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        passengerRef.child("14017").child("S"+i).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //int x=0;
-                //Integer[] num = new Integer[10];
-                //seat_no=dataSnapshot.child("Seat No").getValue(Integer.class);
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    User user5 = postSnapshot.getValue(User.class);
-                    //seatIn14017= postSnapshot.child("Seat No").getValue(Integer.class);
-
-                    //num[x++]
-                    seatIn14017= user5.getSeat_no();
-                    Toast.makeText(getApplicationContext(), "seat no in 14017 from database is " + seatIn14017, Toast.LENGTH_LONG).show();
-                }
-                    //seatIn14017 = Collections.max(Arrays.asList(num));
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        passengerRef.child("14018").child("S"+i).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //int x=0;
-                //Integer[] num = new Integer[10];
-                //seat_no=dataSnapshot.child("Seat No").getValue(Integer.class);
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    User user6 = postSnapshot.getValue(User.class);
-                   // num[x++]
-                    seatIn14018= user6.getSeat_no();
-                    //seatIn14018= postSnapshot.child("Seat No").getValue(Integer.class);
-                    Toast.makeText(getApplicationContext(), "seat no in 14018 from database is " + seatIn14018, Toast.LENGTH_LONG).show();
-                }
-                    //seatIn14018= Collections.max(Arrays.asList(num));
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 
     @Override
     public void onStop(){
         super.onStop();
-    }*/
-  //-------------------------------------------------------------------------------------------------------------------------//
-    public void book_ticket(View view){
-        int maxWaitingSeatAllowed=1;
-        name=ed_name.getText().toString();
-        finalRef=passengerRef.child(item).child("S"+i);
-        childrenRef=finalRef.child(name);
-        age=ed_age.getText().toString();
-        sex=ed_sex.getText().toString();
-        mob_no=ed_mob.getText().toString();
-        /*----------------------SQLite code-----------------------------------------------------------------*/
-        Cursor res=db.getAllData("Train_"+item);
-        try {
+    }
 
-            res.moveToLast();
-            int seatColumnIndex = res.getColumnIndex(BookingDatabase.COL_6);
-            if(i<=3) {
-                if (seatColumnIndex==10) {
-                    i++;
+
+    public void book_ticket (View view) {
+
+            name = ed_name.getText().toString();
+            age = ed_age.getText().toString();
+            sex = ed_sex.getText().toString();
+            mob_no = ed_mob.getText().toString();
+
+            /*----------------------------------------------------------------------------------------------------------------------------*/
+            if (item.equals("12561")) {
+                if (seatIn12561_S1 < 10) {
+                    seat_no_long = seatIn12561_S1;
+                    coach_no = "S1";
+                } else if (seatIn12561_S2 < 10) {
+                    seat_no_long = seatIn12561_S2;
+                    coach_no = "S2";
+                } else if (seatIn12561_S3 < 10) {
+                    seat_no_long = seatIn12561_S3;
+                    coach_no = "S3";
+                } else {
+                    seat_no_long = seatIn12561_WL;
+                    coach_no = "WL";
                 }
-                db.insertData("Train_" + item, name, age, sex, mob_no, "S" + i);
-                Toast.makeText(getApplicationContext(),"seat="+seatColumnIndex+1,Toast.LENGTH_LONG).show();
-            }
-            else if(i>3){
-                if(maxWaitingSeatAllowed<=5)
-                    db.insertExtraData("Train_" + item, name, age, sex, mob_no, "Waiting List",maxWaitingSeatAllowed++);
-                Toast.makeText(getApplicationContext(),"waiting seat="+maxWaitingSeatAllowed,Toast.LENGTH_LONG).show();
-            }
-        }
-        finally {
-            res.close();
-        }
-        /*---------------------------------------------------------------------------------------------------------------------------*/
-        //User user1 = new User(name,age,sex,mob_no,item,"S"+i,seat_no);
 
-/*-----------------------------------Firebase code--------------------------------------------------------------------------------*/
-        /*finalRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //GenericTypeIndicator<Map<String, String>> genericTypeIndicator = new GenericTypeIndicator<Map<String, String>>() {};
-                //Map<String, String> map = dataSnapshot.getValue(genericTypeIndicator);
-               // List<String> list= new ArrayList<String>();
-                //list=dataSnapshot.getValue(List.class);
-                //seat_str=map.get("Seat No");
-               // seat_str=list.get(3);
-                Toast.makeText(getApplicationContext(),"seat_str="+seat_str,Toast.LENGTH_LONG).show();
+
+            } else if (item.equals("12562")) {
+                if (seatIn12562_S1 < 10) {
+                    seat_no_long = seatIn12562_S1;
+                    coach_no = "S1";
+                } else if (seatIn12562_S2 < 10) {
+                    seat_no_long = seatIn12562_S2;
+                    coach_no = "S2";
+                } else if (seatIn12562_S3 < 10) {
+                    seat_no_long = seatIn12562_S3;
+                    coach_no = "S3";
+                } else {
+                    seat_no_long = seatIn12562_WL;
+                    coach_no = "WL";
+                }
+
+            } else if (item.equals("14013")) {
+                if (seatIn14013_S1 < 10) {
+                    seat_no_long = seatIn14013_S1;
+                    coach_no = "S1";
+                } else if (seatIn14013_S2 < 10) {
+                    seat_no_long = seatIn14013_S2;
+                    coach_no = "S2";
+                } else if (seatIn14013_S3 < 10) {
+                    seat_no_long = seatIn14013_S3;
+                    coach_no = "S3";
+                } else {
+                    seat_no_long = seatIn14013_WL;
+                    coach_no = "WL";
+                }
+
+            } else if (item.equals("14014")) {
+                if (seatIn14014_S1 < 10) {
+                    seat_no_long = seatIn14014_S1;
+                    coach_no = "S1";
+                } else if (seatIn14014_S2 < 10) {
+                    seat_no_long = seatIn14014_S2;
+                    coach_no = "S2";
+                } else if (seatIn14014_S3 < 10) {
+                    seat_no_long = seatIn14014_S3;
+                    coach_no = "S3";
+                } else {
+                    seat_no_long = seatIn14014_WL;
+                    coach_no = "WL";
+                }
+
+            } else if (item.equals("14017")) {
+                if (seatIn14017_S1 < 10) {
+                    seat_no_long = seatIn14017_S1;
+                    coach_no = "S1";
+                } else if (seatIn14017_S2 < 10) {
+                    seat_no_long = seatIn14017_S2;
+                    coach_no = "S2";
+                } else if (seatIn14017_S3 < 10) {
+                    seat_no_long = seatIn14017_S3;
+                    coach_no = "S3";
+                } else {
+                    seat_no_long = seatIn14017_WL;
+                    coach_no = "WL";
+                }
+
+            } else if (item.equals("14018")) {
+                if (seatIn14018_S1 < 10) {
+                    seat_no_long = seatIn14018_S1;
+                    coach_no = "S1";
+                } else if (seatIn14018_S2 < 10) {
+                    seat_no_long = seatIn14018_S2;
+                    coach_no = "S2";
+                } else if (seatIn14018_S3 < 10) {
+                    seat_no_long = seatIn14018_S3;
+                    coach_no = "S3";
+                } else {
+                    seat_no_long = seatIn14018_WL;
+                    coach_no = "WL";
+                }
+
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });*/
-/*----------------------------------------------------------------------------------------------------------------------------*/
-        if(seat_no>10) {
-            i++;
-            //childrenRef.child("Coach").setValue("S" +i);
-            seat_no=1;
-            //childrenRef.child("Seat No").setValue(++seat_no);
-            book_ticket(view);
-        }
-        else{
-            //childrenRef.child("Coach").setValue("S" +i);
-            //childrenRef.child("Seat No").setValue(++seat_no);
-            childrenRef.child("Age").setValue(age);
-            childrenRef.child("Sex").setValue(sex);
-            childrenRef.child("Mobile").setValue(mob_no);
-           // if(seat_str!=null || seat_str.isEmpty())
-             //   seat_str="1";
-            //   seat_str="1";
-            /*------------------------------------------------------------------*/
-            if(item.equals("12561"))
-                seat_no=seatIn12561;
-            else  if(item.equals("12562"))
-                seat_no=seatIn12562;
-            else  if(item.equals("14013"))
-                seat_no=seatIn14013;
-            else  if(item.equals("14014"))
-                seat_no=seatIn14014;
-            else  if(item.equals("14017"))
-                seat_no=seatIn14017;
-            else  if(item.equals("14018"))
-                seat_no=seatIn14018;
-            seat_no++;
-            /*----------------------------------------------------------------------------*/
-            if(seat_no==0)
-                seat_no=1;
-            childrenRef.child("Seat No").setValue(seat_no);
-            //seat_no=Integer.parseInt(seat_str);
-            Toast.makeText(getApplicationContext(),"old seat"+seat_no,Toast.LENGTH_LONG).show();
-           // seat_no++;
-            //Toast.makeText(getApplicationContext(),"new seat"+seat_no,Toast.LENGTH_LONG).show();
+            passengerRef.child(item).child(coach_no).child(name).child("Age").setValue(age);
+            passengerRef.child(item).child(coach_no).child(name).child("Sex").setValue(sex);
+            passengerRef.child(item).child(coach_no).child(name).child("Mobile").setValue(mob_no);
 
+            seat_no_long++;
+            passengerRef.child(item).child(coach_no).child(name).child("Seat No").setValue(seat_no_long);
+
+            //Toast.makeText(getApplicationContext(), "old seat" + seat_no_long, Toast.LENGTH_LONG).show();
         }
     }
-}
+
