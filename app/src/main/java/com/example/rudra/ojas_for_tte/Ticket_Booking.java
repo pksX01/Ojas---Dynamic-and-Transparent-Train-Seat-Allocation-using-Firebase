@@ -502,7 +502,6 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
 
             }
 
-
             passengerRef.child(item).child(coach_no).child(name).child("Age").setValue(age);
             passengerRef.child(item).child(coach_no).child(name).child("Sex").setValue(sex);
             passengerRef.child(item).child(coach_no).child(name).child("Mobile").setValue(mob_no);
