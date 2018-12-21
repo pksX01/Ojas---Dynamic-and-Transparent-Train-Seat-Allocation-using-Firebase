@@ -1,5 +1,6 @@
 package com.example.rudra.ojas_for_tte;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -39,9 +40,9 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
     long seatIn12561_WL, seatIn12562_WL, seatIn14013_WL, seatIn14014_WL, seatIn14017_WL, seatIn14018_WL;
     long seat_no_long;
     private DatabaseReference newReference;
-    private DatabaseReference childrenRef, passengerRef;
-    private DatabaseReference finalRef;
-    BookingDatabase db;
+    private DatabaseReference  passengerRef;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +71,6 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
         ed_age = (EditText) findViewById(R.id.editText6);
         ed_sex = (EditText) findViewById(R.id.editText5);
         ed_mob = (EditText) findViewById(R.id.editText8);
-
-        db = new BookingDatabase(this);
 
         newReference = FirebaseDatabase.getInstance().getReference();
         passengerRef = newReference.child("Seats allocated to Passengers at the time of booking ");
@@ -505,9 +504,11 @@ public class Ticket_Booking extends AppCompatActivity implements AdapterView.OnI
             passengerRef.child(item).child(coach_no).child(name).child("Age").setValue(age);
             passengerRef.child(item).child(coach_no).child(name).child("Sex").setValue(sex);
             passengerRef.child(item).child(coach_no).child(name).child("Mobile").setValue(mob_no);
-
             seat_no_long++;
             passengerRef.child(item).child(coach_no).child(name).child("Seat No").setValue(seat_no_long);
+
+        Intent intent = new Intent(Ticket_Booking.this,Sign_in.class);
+        startActivity(intent);
 
             //Toast.makeText(getApplicationContext(), "old seat" + seat_no_long, Toast.LENGTH_LONG).show();
         }

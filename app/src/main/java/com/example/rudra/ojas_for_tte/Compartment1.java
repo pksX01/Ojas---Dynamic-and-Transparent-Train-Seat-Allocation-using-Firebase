@@ -22,11 +22,11 @@ public class Compartment1 extends AppCompatActivity {
     private String data1 = "";
     private String data2 = "";
     private String[] phoneNo1 = new String[]{"7011051829","7011983690" };
-    private String[] phoneNo2 = new String[]{ "9069686398","9911596226"};
+    private String[] phoneNo2 = new String[]{ "9069686398"};
     private String[] phoneNo3 = new String[]{"8800219145","7827827047"};
-    private String[] phoneNo4 = new String[]{"9810739882","9911596226"};
-    private String[] phoneNo5 = new String[]{"9968882472"};
-    private String[] phoneNo6 = new String[]{"8178787766","8929402435"};
+    private String[] phoneNo4 = new String[]{"9810739882"};
+    private String[] phoneNo5 = new String[]{"9968882472","8368614346"};
+    private String[] phoneNo6 = new String[]{"9899646353"};
     private int[] allocated_seats = new int[75];
     private int i = 0, vacant = 0;
     private int[] unallocated_seats = new int[75];
@@ -34,7 +34,7 @@ public class Compartment1 extends AppCompatActivity {
     private List<Button> buttons;
     private static final int[] BUTTON_IDS = {
             R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6,
-            R.id.button7, R.id.button8, R.id.button9, R.id.button10, R.id.button11, R.id.button12,
+            R.id.button7, R.id.button8, R.id.button9, R.id.button10/*, R.id.button11, R.id.button12,
             R.id.button13, R.id.button14, R.id.button15, R.id.button16, R.id.button17, R.id.button18,
             R.id.button19, R.id.button20, R.id.button21, R.id.button22, R.id.button23, R.id.button24,
             R.id.button25, R.id.button26, R.id.button27, R.id.button28, R.id.button29, R.id.button30,
@@ -44,7 +44,7 @@ public class Compartment1 extends AppCompatActivity {
             R.id.button49, R.id.button50, R.id.button51, R.id.button52, R.id.button53, R.id.button54,
             R.id.button55, R.id.button56, R.id.button57, R.id.button58, R.id.button59, R.id.button60,
             R.id.button61, R.id.button62, R.id.button63, R.id.button64, R.id.button65, R.id.button66,
-            R.id.button67, R.id.button68, R.id.button69, R.id.button70, R.id.button71, R.id.button72,
+            R.id.button67, R.id.button68, R.id.button69, R.id.button70, R.id.button71, R.id.button72,*/
     };
 
     Button submit_btn;
@@ -95,11 +95,11 @@ public class Compartment1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                for (int blank = 0; blank < 72; blank++) {
+                for (int blank = 0; blank < 12; blank++) {
                     unallocated_seats[blank] = 0;
                 }
 
-                for (int j = 1; j <= 72; j++) {
+                for (int j = 1; j <= 12; j++) {
                     int count = 0;
                     for (int k = 0; k < i; k++) {
                         if (j == allocated_seats[k]) {
@@ -127,6 +127,7 @@ public class Compartment1 extends AppCompatActivity {
     protected void sendSMSMessage() {
         SmsManager smsManager = SmsManager.getDefault();
 
+
         //int x;
         //for (x = 0; x < 3; x++) {
         //if (unallocated_seats[x] > 0) {
@@ -134,11 +135,11 @@ public class Compartment1 extends AppCompatActivity {
         if (data1.equals("12561") && data2.equals("S1"))
             smsManager.sendTextMessage(phoneNo1[0], null, "Pavan, You are allotted seat no. " + unallocated_seats[0] + " in " + data2 + " coach " + "in train " + data1, null, null);
         else if (data1.equals("12562") && data2.equals("S1"))
-            smsManager.sendTextMessage(phoneNo2[1], null, "Piyush, You are allotted seat no. " + unallocated_seats[0] + " in " + data2 + " coach " + "in train " + data1, null, null);
+            smsManager.sendTextMessage(phoneNo2[0], null, "Piyush, You are allotted seat no. " + unallocated_seats[0] + " in " + data2 + " coach " + "in train " + data1, null, null);
         else if (data1.equals("14013") && data2.equals("S1"))
             smsManager.sendTextMessage(phoneNo3[0], null, "Aman, You are allotted seat no. " + unallocated_seats[0] + " in " + data2 + " coach " + "in train " + data1, null, null);
         else if (data1.equals("14014") && data2.equals("S1"))
-            smsManager.sendTextMessage(phoneNo4[1], null, "Rudra, You are allotted seat no. " + unallocated_seats[0] + " in " + data2 + " coach " + "in train " + data1, null, null);
+            smsManager.sendTextMessage(phoneNo4[0], null, "Rudra, You are allotted seat no. " + unallocated_seats[0] + " in " + data2 + " coach " + "in train " + data1, null, null);
         else if (data1.equals("14017") && data2.equals("S1"))
             smsManager.sendTextMessage(phoneNo5[0], null, "Ojas, You are allotted seat no. " + unallocated_seats[0] + " in " + data2 + " coach " + "in train " + data1, null, null);
         else if (data1.equals("14018") && data2.equals("S1"))
@@ -148,9 +149,9 @@ public class Compartment1 extends AppCompatActivity {
         if (data1.equals("12561") && data2.equals("S2"))
             smsManager.sendTextMessage(phoneNo1[1], null, "Rishabh, You are allotted seat no. " + unallocated_seats[1] + " in " + data2 + " coach " + "in train " + data1, null, null);
         else if (data1.equals("14013") && data2.equals("S2"))
-            smsManager.sendTextMessage(phoneNo3[1], null, "Rishabh kr, You are allotted seat no. " + unallocated_seats[0] + " in " + data2 + " coach " + "in train " + data1, null, null);
+            smsManager.sendTextMessage(phoneNo3[1], null, "Rishabh kr, You are allotted seat no. " + unallocated_seats[1] + " in " + data2 + " coach " + "in train " + data1, null, null);
         else if (data1.equals("14017") && data2.equals("S2"))
-            smsManager.sendTextMessage(phoneNo5[1], null, "Pankaj, You are allotted seat no. " + unallocated_seats[0] + " in " + data2 + " coach " + "in train " + data1, null, null);
+            smsManager.sendTextMessage(phoneNo5[1], null, "Amit, You are allotted seat no. " + unallocated_seats[1] + " in " + data2 + " coach " + "in train " + data1, null, null);
                     /*else if (x == 2)
 
                     smsManager.sendTextMessage(phoneNo[2], null, "You are allotted seat no. " + unallocated_seats[2] + " in " + data2 + " coach " + "in train " + data1, null, null);*/
